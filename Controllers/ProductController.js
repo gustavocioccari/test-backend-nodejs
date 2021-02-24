@@ -5,7 +5,7 @@ module.exports = {
     try {
 
     }catch(err){
-      return res.status(400).send({ error: 'Product registration has failed' });
+      return response.status(400).send({ error: 'Product registration has failed' });
     }
   },
 
@@ -13,7 +13,7 @@ module.exports = {
     try {
 
     }catch(err){
-      return res.status(400).send({ error: 'Product search has failed' });
+      return response.status(400).send({ error: 'Product search has failed' });
     }
   },
 
@@ -21,7 +21,7 @@ module.exports = {
     try {
 
     }catch(err){
-      return res.status(400).send({ error: 'Product update has failed' });
+      return response.status(400).send({ error: 'Product update has failed' });
     }
   },
 
@@ -29,7 +29,7 @@ module.exports = {
     try {
 
     }catch(err){
-      return res.status(400).send({ error: 'Product deletion failed' });
+      return response.status(400).send({ error: 'Product deletion failed' });
     }
   },
 }
