@@ -18,8 +18,25 @@ module.exports = {
   },
 
   async get(request, response){
-    try {
+    const { title = null, categoryId = null } = request.query
 
+    try {
+      if (title && categoryId){
+        const products = await Product.find({$and: [{ title: title }, { categoryId: categoryId }],})
+        return response.json({ products })
+      }
+      else if (title && !categoryId){
+        const products = await Product.find({ title: title })
+        return response.json({ products })
+      }
+      else if (!title && categoryId){
+        const products = await Product.find({ categoryId: categoryId })
+        return response.json({ products })
+      }
+
+      const products = await Product.find()
+      
+      return response.json(products)
     }catch(err){
       return response.status(400).send({ error: 'Product search has failed' });
     }
