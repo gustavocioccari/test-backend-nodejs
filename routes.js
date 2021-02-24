@@ -11,5 +11,6 @@ routes.put("/product/:id", ProductController.update);
 routes.delete("/product/:id", ProductController.delete);
 
 routes.post("/category", CategoryController.create);
+routes.get("/category", CategoryController.get);
 
 module.exports = routes;
