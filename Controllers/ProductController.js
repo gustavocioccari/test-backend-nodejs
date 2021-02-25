@@ -44,7 +44,11 @@ module.exports = {
 
   async update(request, response){
     try {
+      const { id } = request.params
+      const update = request.body
 
+      await Product.findByIdAndUpdate(id,update)
+      response.json( update )
     }catch(err){
       return response.status(400).send({ error: 'Product update has failed' });
     }
@@ -52,7 +56,10 @@ module.exports = {
 
   async delete(request, response){
     try {
+      const { id } = request.params
 
+      await Product.findByIdAndRemove(id)
+      response.json({ message: "Product deleted." })
     }catch(err){
       return response.status(400).send({ error: 'Product deletion failed' });
     }
